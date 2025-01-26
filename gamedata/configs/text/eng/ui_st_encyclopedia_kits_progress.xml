@@ -6,10 +6,10 @@
 		<text>My kits progress:</text>
 	</string>
 	<string id="pda_encyclopedia_kits_progress_in_progress">
-		<text>Just %s%s%s more tasks, and I might stumble upon something truly %srare%s.</text>
+		<text>Just %s%s%s more tasks, and I might stumble upon %srare%s stash.</text>
 	</string>
 	<string id="pda_encyclopedia_kits_progress_one_left">
-		<text>Just %s%s%s more task, and I might stumble upon something truly %srare%s.</text>
+		<text>Just %s%s%s more task, and I might stumble upon %srare%s stash.</text>
 	</string>
 	<string id="pda_encyclopedia_kits_progress_next_rare">
 		<text>From here on, any %snew%s stash could be %srare%s... if luck's on my side.</text>
