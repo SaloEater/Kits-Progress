@@ -1,0 +1,50 @@
+local UpdateDescr_old = ui_pda_encyclopedia_tab.UpdateDescr
+
+local color_yellow = utils_xml.get_color("pda_yellow")
+local color_gray = utils_xml.get_color("ui_gray_1")
+local color_green = utils_xml.get_color("pda_green")
+local color_red = utils_xml.get_color("d_red")
+
+local new_line = function(str)
+	return str .. color_gray .. " \\n"
+end
+
+ui_pda_encyclopedia_tab.UpdateDescr = function(section, str)
+	str = UpdateDescr_old(section, str)
+	if section == "encyclopedia__notes_kits_progress" then
+		local info_list = {{"basic_kit", "basickit"}, {"advanced_kit", "advancedkit"}, {"expert_kit", "expertkit"}}
+		for i, info in ipairs(info_list) do
+			local found = has_alife_info("actor_find_" .. info[1])
+			local tools_name = game.translate_string("st_itm_" .. info[2] .. "_name")
+			if found then
+				str = new_line(str) .. string.format(game.translate_string("pda_encyclopedia_kits_progress_tool_found"), color_green, tools_name)
+			else
+				str = new_line(str) .. string.format(game.translate_string("pda_encyclopedia_kits_progress_tool_not_found"), color_red, tools_name)
+			end
+		end
+
+		str = new_line(str)
+
+		local current = (load_var(db.actor, "toolkit_reward_count") or 0) - 1
+		local max = treasure_manager.stash_rare.task_num
+		local left = max - current
+		if left <= 0 then
+			str = new_line(str) .. string.format(game.translate_string("pda_encyclopedia_kits_progress_next_rare"), color_green, color_gray, color_yellow, color_gray)
+		else
+			if left == 1 then
+				str = new_line(str) .. string.format(game.translate_string("pda_encyclopedia_kits_progress_one_left"), color_yellow, left, color_gray, color_yellow, color_gray)
+			else
+				str = new_line(str) .. string.format(game.translate_string("pda_encyclopedia_kits_progress_in_progress"), color_yellow, left, color_gray, color_yellow, color_gray)
+			end
+		end
+	end
+	return str
+end
+
+local UpdateColor_old = ui_pda_encyclopedia_tab.UpdateColor
+ui_pda_encyclopedia_tab.UpdateColor = function(section, color)
+	if section == "encyclopedia__notes_kits_progress" then
+		return utils_xml.get_color("pda_white",true)
+	end
+	return UpdateColor_old(section, color)
+end

@@ -1,0 +1,23 @@
+<string_table>
+	<string id="encyclopedia__notes_kits_progress">
+		<text>Kits Progress</text>
+	</string>
+	<string id="encyclopedia__notes_kits_progress_text">
+		<text>My kits progress:</text>
+	</string>
+	<string id="pda_encyclopedia_kits_progress_in_progress">
+		<text>Just %s%s%s more tasks, and I might stumble upon something truly %srare%s.</text>
+	</string>
+	<string id="pda_encyclopedia_kits_progress_one_left">
+		<text>Just %s%s%s more task, and I might stumble upon something truly %srare%s.</text>
+	</string>
+	<string id="pda_encyclopedia_kits_progress_next_rare">
+		<text>From here on, any %snew%s stash could be %srare%s... if luck's on my side.</text>
+	</string>
+	<string id="pda_encyclopedia_kits_progress_tool_found">
+		<text>I already found %s%s</text>
+	</string>
+	<string id="pda_encyclopedia_kits_progress_tool_not_found">
+		<text>I am still looking for %s%s</text>
+	</string>
+</string_table>
