@@ -9,13 +9,38 @@ local new_line = function(str)
 	return str .. color_gray .. " \\n"
 end
 
+local data = {
+	["itm_basickit"] = false,
+	["itm_advancedkit"] = false,
+	["itm_expertkit"] = false,
+	["itm_drugkit"] = false,
+	["itm_ammokit"] = false,
+}
+
+local translation_strings = {
+	["itm_basickit"] = "st_itm_basickit_name",
+	["itm_advancedkit"] = "st_itm_advancedkit_name",
+	["itm_expertkit"] = "st_itm_expertkit_name",
+	["itm_drugkit"] = "st_itm_drugkit",
+	["itm_ammokit"] = "st_itm_ammokit",
+}
+
 ui_pda_encyclopedia_tab.UpdateDescr = function(section, str)
 	str = UpdateDescr_old(section, str)
 	if section == "encyclopedia__notes_kits_progress" then
-		local info_list = {{"basic_kit", "basickit"}, {"advanced_kit", "advancedkit"}, {"expert_kit", "expertkit"}}
-		for i, info in ipairs(info_list) do
-			local found = has_alife_info("actor_find_" .. info[1])
-			local tools_name = game.translate_string("st_itm_" .. info[2] .. "_name")
+		printf("%s", data)
+		local kits_order = {
+			"itm_basickit",
+			"itm_advancedkit",
+			"itm_expertkit",
+			"itm_drugkit",
+			"itm_ammokit",
+		}
+
+		for _, key in ipairs(kits_order) do
+			local found = data[key]
+			printf("%s = %s", key, found)
+			local tools_name = game.translate_string(translation_strings[key])
 			if found then
 				str = new_line(str) .. string.format(game.translate_string("pda_encyclopedia_kits_progress_tool_found"), color_green, tools_name)
 			else
@@ -47,4 +72,41 @@ ui_pda_encyclopedia_tab.UpdateColor = function(section, color)
 		return utils_xml.get_color("pda_white",true)
 	end
 	return UpdateColor_old(section, color)
+end
+
+local treasure_manager_try_spawn_treasure_old = treasure_manager.try_spawn_treasure
+function treasure_manager.try_spawn_treasure(box)
+	local id = box:id()
+
+	if not (treasure_manager.caches[id]) then
+		return
+	end
+
+	if not (type(treasure_manager.caches[id]) == "string") then
+		return
+	end
+
+	local spawned_item = str_explode(treasure_manager.caches[id],",")
+	for i, section in ipairs(spawned_item) do
+		if data[section] == false then
+			data[section] = true
+		end
+	end
+	treasure_manager_try_spawn_treasure_old(box)
+end
+
+function save_state(m_data)
+	m_data.kits_progress = data
+end
+
+function load_state(m_data)
+	local t = m_data.kits_progress or {}
+	for tools, v in pairs(t) do
+		data[tools] = v
+	end
+end
+
+function on_game_start()
+	RegisterScriptCallback("load_state", load_state)
+	RegisterScriptCallback("save_state", save_state)
 end
