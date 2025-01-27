@@ -28,7 +28,6 @@ local translation_strings = {
 ui_pda_encyclopedia_tab.UpdateDescr = function(section, str)
 	str = UpdateDescr_old(section, str)
 	if section == "encyclopedia__notes_kits_progress" then
-		printf("%s", data)
 		local kits_order = {
 			"itm_basickit",
 			"itm_advancedkit",
@@ -39,7 +38,6 @@ ui_pda_encyclopedia_tab.UpdateDescr = function(section, str)
 
 		for _, key in ipairs(kits_order) do
 			local found = data[key]
-			printf("%s = %s", key, found)
 			local tools_name = game.translate_string(translation_strings[key])
 			if found then
 				str = new_line(str) .. string.format(game.translate_string("pda_encyclopedia_kits_progress_tool_found"), color_green, tools_name)
