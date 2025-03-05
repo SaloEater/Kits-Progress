@@ -1,0 +1,23 @@
+<string_table>
+    <string id="encyclopedia__notes_kits_progress">
+        <text>Мои верстаки</text>
+    </string>
+    <string id="encyclopedia__notes_kits_progress_text">
+        <text>Мои верстаки:</text>
+    </string>
+    <string id="pda_encyclopedia_kits_progress_in_progress">
+        <text>Еще %s%s%s задач(и), и мне наконец-то может попасться %sредкий%s тайник.</text>
+    </string>
+    <string id="pda_encyclopedia_kits_progress_one_left">
+        <text>Еще %s%s%s задача, и мне наконец-то может попасться %sредкий%s тайник.</text>
+    </string>
+    <string id="pda_encyclopedia_kits_progress_next_rare">
+        <text>Ну что, каждый %sновый%s тайник может быть %sредким%s... понадеюсь на удачу.</text>
+    </string>
+    <string id="pda_encyclopedia_kits_progress_tool_found">
+        <text>Я уже нашел %s%s</text>
+    </string>
+    <string id="pda_encyclopedia_kits_progress_tool_not_found">
+        <text>Я еще ищу %s%s</text>
+    </string>
+</string_table>
