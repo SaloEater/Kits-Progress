@@ -1,23 +1,24 @@
+<?xml version="1.0" encoding="windows-1251" ?>
 <string_table>
     <string id="encyclopedia__notes_kits_progress">
-        <text>РњРѕРё РІРµСЂСЃС‚Р°РєРё</text>
+        <text>Мои инструменты</text>
     </string>
     <string id="encyclopedia__notes_kits_progress_text">
-        <text>РњРѕРё РІРµСЂСЃС‚Р°РєРё:</text>
+        <text>Мои инструменты:</text>
     </string>
     <string id="pda_encyclopedia_kits_progress_in_progress">
-        <text>Р•С‰Рµ %s%s%s Р·Р°РґР°С‡(Рё), Рё РјРЅРµ РЅР°РєРѕРЅРµС†-С‚Рѕ РјРѕР¶РµС‚ РїРѕРїР°СЃС‚СЊСЃСЏ %sСЂРµРґРєРёР№%s С‚Р°Р№РЅРёРє.</text>
+        <text>Еще %s%s%s задач(и), и мне наконец-то может попасться %sредкий%s тайник.</text>
     </string>
     <string id="pda_encyclopedia_kits_progress_one_left">
-        <text>Р•С‰Рµ %s%s%s Р·Р°РґР°С‡Р°, Рё РјРЅРµ РЅР°РєРѕРЅРµС†-С‚Рѕ РјРѕР¶РµС‚ РїРѕРїР°СЃС‚СЊСЃСЏ %sСЂРµРґРєРёР№%s С‚Р°Р№РЅРёРє.</text>
+        <text>Еще %s%s%s задача, и мне наконец-то может попасться %sредкий%s тайник.</text>
     </string>
     <string id="pda_encyclopedia_kits_progress_next_rare">
-        <text>РќСѓ С‡С‚Рѕ, РєР°Р¶РґС‹Р№ %sРЅРѕРІС‹Р№%s С‚Р°Р№РЅРёРє РјРѕР¶РµС‚ Р±С‹С‚СЊ %sСЂРµРґРєРёРј%s... РїРѕРЅР°РґРµСЋСЃСЊ РЅР° СѓРґР°С‡Сѓ.</text>
+        <text>Ну что, каждый %sновый%s тайник может быть %sредким%s... понадеюсь на удачу.</text>
     </string>
     <string id="pda_encyclopedia_kits_progress_tool_found">
-        <text>РЇ СѓР¶Рµ РЅР°С€РµР» %s%s</text>
+        <text>Я уже нашел %s%s</text>
     </string>
     <string id="pda_encyclopedia_kits_progress_tool_not_found">
-        <text>РЇ РµС‰Рµ РёС‰Сѓ %s%s</text>
+        <text>Я еще ищу %s%s</text>
     </string>
 </string_table>
